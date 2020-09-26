@@ -1,4 +1,4 @@
-package com.iscob.iscob.model;
+package com.iscob.iscob.entities;
 
 public class TestModel {
 
