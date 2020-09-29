@@ -1,2 +1,4 @@
-package com.iscob.iscob.controllers;public class NewConvertsReportController {
+package com.iscob.iscob.controllers;
+
+public class NewConvertsReportController {
 }
