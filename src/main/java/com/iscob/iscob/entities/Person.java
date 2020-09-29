@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "genre")
+@Table(name = "person")
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
 

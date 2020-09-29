@@ -1,5 +1,7 @@
 package com.iscob.iscob.entities;
 
+import com.iscob.iscob.dto.WardDTO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class Ward implements Serializable  {
     private Long id;
     private Long wardNumber;
     private String wardName;
+    private String bishopName;
 
     @ManyToOne
     @JoinColumn(name = "stake_id")
@@ -27,11 +30,13 @@ public class Ward implements Serializable  {
     public Ward() {
     }
 
-    public Ward(Long id, Long wardNumber, String wardName, Stake stake) {
+    public Ward(Long id, Long wardNumber, String wardName, Stake stake, String bishopName) {
         this.id = id;
         this.wardNumber = wardNumber;
         this.wardName = wardName;
         this.stake = stake;
+        this.bishopName = bishopName;
+
     }
 
     public Long getId() {
@@ -64,6 +69,14 @@ public class Ward implements Serializable  {
 
     public void setStake(Stake stake) {
         this.stake = stake;
+    }
+
+    public String getBishopName() {
+        return bishopName;
+    }
+
+    public void setBishopName(String bishopName) {
+        this.bishopName = bishopName;
     }
 
     @Override

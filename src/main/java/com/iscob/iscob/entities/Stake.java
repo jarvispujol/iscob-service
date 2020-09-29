@@ -16,6 +16,7 @@ public class Stake implements Serializable {
     private Long id;
     private Long stakeNumber;
     private String stakeName;
+    private String stakePresident;
 
     @OneToMany(mappedBy = "stake")
     private List<Ward> wardList = new ArrayList<>();
@@ -23,10 +24,11 @@ public class Stake implements Serializable {
     public Stake() {
     }
 
-    public Stake(Long id, Long stakeNumber, String stakeName) {
+    public Stake(Long id, Long stakeNumber, String stakeName, String stakePresident) {
         this.id = id;
         this.stakeNumber = stakeNumber;
         this.stakeName = stakeName;
+        this.stakePresident = stakePresident;
     }
 
     public Long getId() {
@@ -59,6 +61,14 @@ public class Stake implements Serializable {
 
     public void setWardList(List<Ward> wardList) {
         this.wardList = wardList;
+    }
+
+    public String getStakePresident() {
+        return stakePresident;
+    }
+
+    public void setStakePresident(String stakePresident) {
+        this.stakePresident = stakePresident;
     }
 
     @Override
