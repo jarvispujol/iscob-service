@@ -1,20 +1,13 @@
-package com.iscob.iscob.entities;
+package com.iscob.iscob.dto;
 
+import com.iscob.iscob.entities.Person;
+import com.iscob.iscob.entities.PersonReport;
 import com.iscob.iscob.entities.enums.Priesthood;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Date;
-import java.time.Instant;
-import java.util.Objects;
+import java.util.Date;
 
-@Entity
-@Table(name = "new_converts_report")
-public class NewConvertsReport implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class PersonReportDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Priesthood office;
     private Date baptismDate;
@@ -32,16 +25,38 @@ public class NewConvertsReport implements Serializable {
     private Date templePrep;
     private Date templeInv;
     private Date templeSeal;
+    private Date dateAdded;
+    private Date dateModified;
+    private Long personId;
 
-    private Instant dateAdded;
-    private Instant dateModified;
+    public PersonReportDTO() {
+    }
 
-    @OneToOne
-    private Person person;
+    public PersonReportDTO(PersonReport personReport) {
+        this.id = personReport.getId();
+        this.office = personReport.getOffice();
+        this.baptismDate = personReport.getBaptismDate();
+        this.confirmDate = personReport.getConfirmDate();
+        this.bishopInterview = personReport.getBishopInterview();
+        this.aaronicPriesthood = personReport.getAaronicPriesthood();
+        this.gospelPrincipals = personReport.getGospelPrincipals();
+        this.lessonsStart = personReport.getLessonsStart();
+        this.lessonsEnd = personReport.getLessonsEnd();
+        this.callingDate = personReport.getCallingDate()
+        this.attendance = personReport.getAttendance();
+        this.genealogy = personReport.getGenealogy();
+        this.melchisedec = personReport.getMelchisedec();
+        this.vicaryBaptism = personReport.getVicaryBaptism();
+        this.templePrep = personReport.getTemplePrep();
+        this.templeInv = personReport.getTempleInv();
+        this.templeSeal = personReport.getTempleSeal();
+        this.dateAdded = Date.from(personReport.getDateAdded());
+        this.dateModified = Date.from(personReport.getDateModified());
+        this.personId = personReport.getPerson().getId();
 
-    public NewConvertsReport() { }
+    }
 
-    public NewConvertsReport(Long id, Priesthood office, Date baptismDate, Date confirmDate, Date bishopInterview, Date aaronicPriesthood, Date gospelPrincipals, Date lessonsStart, Date lessonsEnd, Date callingDate, Date attendance, Date genealogy, Date melchisedec, Date vicaryBaptism, Date templePrep, Date templeInv, Date templeSeal, Instant dateAdded, Instant dateModified, Person person) {
+    public PersonReportDTO(Long id, Priesthood office, Date baptismDate, Date confirmDate, Date bishopInterview, Date aaronicPriesthood, Date gospelPrincipals, Date lessonsStart, Date lessonsEnd, Date callingDate, Date attendance, Date genealogy, Date melchisedec, Date vicaryBaptism, Date templePrep, Date templeInv, Date templeSeal, Date dateAdded, Date dateModified, Long personId) {
         this.id = id;
         this.office = office;
         this.baptismDate = baptismDate;
@@ -61,7 +76,7 @@ public class NewConvertsReport implements Serializable {
         this.templeSeal = templeSeal;
         this.dateAdded = dateAdded;
         this.dateModified = dateModified;
-        this.person = person;
+        this.personId = personId;
     }
 
     public Long getId() {
@@ -200,40 +215,27 @@ public class NewConvertsReport implements Serializable {
         this.templeSeal = templeSeal;
     }
 
-    public Instant getDateAdded() {
+    public Date getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(Instant dateAdded) {
+    public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
     }
 
-    public Instant getDateModified() {
+    public Date getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(Instant dateModified) {
+    public void setDateModified(Date dateModified) {
         this.dateModified = dateModified;
     }
 
-    public Person getPerson() {
-        return person;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NewConvertsReport that = (NewConvertsReport) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 }

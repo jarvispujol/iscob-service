@@ -1,7 +1,6 @@
 package com.iscob.iscob.controllers;
 
 import com.iscob.iscob.dto.PersonDTO;
-import com.iscob.iscob.entities.Person;
 import com.iscob.iscob.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/persons")
