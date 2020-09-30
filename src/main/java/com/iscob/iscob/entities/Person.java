@@ -27,7 +27,7 @@ public class Person implements Serializable {
     private Ward ward;
 
     @OneToOne
-    private NewConvertsReport report;
+    private PersonReport report;
 
     public Person() {}
 
