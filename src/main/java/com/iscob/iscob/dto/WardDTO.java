@@ -1,18 +1,18 @@
 package com.iscob.iscob.dto;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iscob.iscob.entities.Ward;
 
 public class WardDTO {
 
     private Long id;
-    @JsonAlias("ward_number")
+    @JsonProperty("ward_number")
     private Long wardNumber;
-    @JsonAlias("ward_name")
+    @JsonProperty("ward_name")
     private String wardName;
-    @JsonAlias("bishop_name")
+    @JsonProperty("bishop_name")
     private String bishopName;
-    @JsonAlias("stake_id")
+    @JsonProperty("stake_id")
     private Long stakeId;
 
     public WardDTO() {
