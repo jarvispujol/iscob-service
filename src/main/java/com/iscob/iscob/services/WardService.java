@@ -50,6 +50,7 @@ public class WardService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public WardDTO update(WardDTO ward) {
         Optional<Ward> opt = wardRepository.findById(ward.getId());
         Ward entity = opt.get();
@@ -71,6 +72,7 @@ public class WardService {
         return new WardDTO(entity);
     }
 
+    @Transactional
     public void delete(Long id){
         Optional<Ward> opt = wardRepository.findById(id);
         wardRepository.delete(opt.get());

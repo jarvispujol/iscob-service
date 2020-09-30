@@ -7,6 +7,7 @@ import com.iscob.iscob.repositories.StakeRepository;
 import com.iscob.iscob.repositories.WardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,7 @@ public class StakeService {
         return new StakeDTO(opt.get());
     }
 
+    @Transactional
     public StakeDTO update(Long id, StakeDTO stake){
 
         Optional<Stake> opt = stakeRepository.findById(id);
@@ -55,6 +57,7 @@ public class StakeService {
         return new StakeDTO(entity);
     }
 
+    @Transactional
     public void delete(Long id){
         Optional<Stake> opt = stakeRepository.findById(id);
         stakeRepository.delete(opt.get());
